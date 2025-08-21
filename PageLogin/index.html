@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* CSS Embutido */
+        body {
+            background-color: #1a1a1a; /* Preto suave */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #2b2b2b;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 320px;
+        }
+
+        .login-container h2 {
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 10px;
+            background-color: #333333;
+            border: 2px solid #444444;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #8A2BE2; /* Roxo */
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #8A2BE2; /* Roxo */
+            border: none;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #7B1FA2; /* Roxo mais escuro */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Bem-vindo</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Usuário" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Senha" required>
+            </div>
+            <button type="submit" class="login-button">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript Embutido
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            // Previne o envio padrão do formulário, que recarregaria a página
+            event.preventDefault();
+
+            // Pega o valor do campo de usuário
+            const username = document.getElementById('username').value;
+
+            // Verifica se o campo de usuário não está vazio
+            if (username) {
+                // Guarda o nome do usuário no localStorage
+                localStorage.setItem('username', username);
+
+                // Redireciona para a página index.html
+                window.location.href = '/PageBot/index.html';
+            }
+        });
+    </script>
+
+</body>
+</html>
